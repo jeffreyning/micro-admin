@@ -1,5 +1,8 @@
 .project
 .settings
+.classpath
+.factorypath
+.apt_generated
 target
 
 # Compiled class file
