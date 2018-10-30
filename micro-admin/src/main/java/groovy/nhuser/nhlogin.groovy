@@ -93,7 +93,7 @@ class NhLogin  extends MicroMvcTemplate{
 		String sql = "SELECT m1.id AS id,m1.icon AS icon," +
 				"( CASE WHEN (m2.id = 0 OR m2.id IS NULL) THEN 0  ELSE m2.id END ) AS parentId, m1.name AS NAME, m1.url AS url, m1.levels AS levels, m1.ismenu AS ismenu,"+
 				"m1.num AS num "+
-				"FROM sf_sys_menu m1 LEFT JOIN sf_sys_menu m2 ON m1.pcode = m2.code "+
+				"FROM nh_micro_sysmenu m1 LEFT JOIN nh_micro_sysmenu m2 ON m1.pcode = m2.code "+
 				"WHERE m1.ismenu = 1 AND m1.status =1 AND m1.ismenu = 1 AND "+
 				"m1.code IN ( SELECT DISTINCT (mr.menu_id) FROM nh_micro_ref_menu_role mr,nh_micro_ref_user_role ur WHERE mr.role_id = ur.role_id AND ur.user_id = ?) "+
 				"ORDER BY levels, num ASC"

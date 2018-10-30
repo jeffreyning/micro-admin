@@ -49,7 +49,7 @@ public class ShiroServiceImpl implements ShiroService{
 		logger.info("………………开始加载数据库权限数据………………");
 		Map<String,String> filterChainDefinitionMap = new LinkedHashMap<String,String>();
 		try {
-			List<Map<String,Object>> list = jdbcTemplate.queryForList("select * from sf_sys_menu");
+			List<Map<String,Object>> list = jdbcTemplate.queryForList("select * from nh_micro_sysmenu");
 			for(Object obj : list){
 				Map menu = (Map)obj;
 				if(menu.get("url") == null || "".equals(menu.get("url"))){

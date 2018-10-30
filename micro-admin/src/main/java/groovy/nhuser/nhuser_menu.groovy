@@ -21,7 +21,7 @@ import groovy.template.MicroControllerTemplate
 class MenuList extends MicroControllerTemplate {
     private static Logger logger = Logger.getLogger(MenuList.class);
     public String pageName = "";
-    public String tableName = "sf_sys_menu";
+    public String tableName = "nh_micro_sysmenu";
 
 	@Autowired
 	public ShiroFilterFactoryBean shiroFilterFactoryBean
