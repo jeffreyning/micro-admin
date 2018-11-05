@@ -195,6 +195,12 @@
 				<directory>src/main/resources/${env}</directory>
 				<targetPath></targetPath>
 			</resource>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.groovy</include>
+				</includes>
+			</resource>
 		</resources>
 	</build>
 	<profiles>

@@ -1,9 +1,13 @@
+.idea
 .project
 .settings
 .classpath
 .factorypath
 .apt_generated
 target
+out
+
+*.iml
 
 # Compiled class file
 *.class
