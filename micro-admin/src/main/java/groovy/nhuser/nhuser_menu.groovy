@@ -10,10 +10,11 @@ import org.apache.shiro.spring.web.ShiroFilterFactoryBean
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.ResponseBody
 
-
+import com.common.admin.shiro.ShiroServiceImpl
 import com.nh.micro.controller.MicroUrlMapping
 
 import groovy.json.JsonBuilder
+import groovy.template.AbstractResultCode
 import groovy.template.MicroControllerTemplate
 
 
@@ -22,7 +23,10 @@ class MenuList extends MicroControllerTemplate {
     private static Logger logger = Logger.getLogger(MenuList.class);
     public String pageName = "";
     public String tableName = "nh_micro_sysmenu";
-
+	
+	@Autowired
+	public ShiroServiceImpl shiroServiceImpl;
+	
 	@Autowired
 	public ShiroFilterFactoryBean shiroFilterFactoryBean
 
@@ -138,7 +142,7 @@ class MenuList extends MicroControllerTemplate {
 				placeList.add(requestParamMap.get("url").toString())
 				retList=getInfoListAllServiceBySql("select * from  "+tableName+" where url=?", placeList);
 				if(retList != null && retList.size() > 0){
-					output(ResultCode.menu_url_exist, httpResponse)
+					output(AbstractResultCode.menu_url_exist, httpResponse)
 					return
 				}
 			}
@@ -161,7 +165,7 @@ class MenuList extends MicroControllerTemplate {
 				placeList.add(requestParamMap.get("code").toString())
 				List retList=getInfoListAllServiceBySql("select * from  "+tableName+" where url=? and code != ?", placeList);
 				if(retList != null && retList.size() > 0){
-					output(ResultCode.menu_url_exist, httpResponse)
+					output(AbstractResultCode.menu_url_exist, httpResponse)
 					return
 				}
 			}
